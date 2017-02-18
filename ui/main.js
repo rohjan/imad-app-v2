@@ -25,11 +25,9 @@ button.onclick = function() {
 };
 
 // submit name
-var nameInput = document.getElementById('name');
 var submit = document.getElementById('submit_btn');
 
 submit.onclick = function() {
-    var name = nameInput.value;
     //make a request to the server and send the name
     var request = new XMLHttpRequest();
 
@@ -51,6 +49,8 @@ submit.onclick = function() {
         }
     };
 
+    var nameInput = document.getElementById('name');
+    var name = nameInput.value;
     //Make the request
     request.open('GET','http://rohjan.imad.hasura-app.io/submit-name?name='+name, true);
     request.send(null);
