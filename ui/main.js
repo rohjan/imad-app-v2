@@ -49,7 +49,7 @@ submit.onclick = function() {
                 ul.innerHTML = list;
             }
         }
-    }
+    };
 
     //Make the request
     request.open('GET','http://rohjan.imad.hasura-app.io/submit-name?name='+name, true);
