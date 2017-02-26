@@ -8,8 +8,9 @@ var config = {
     database: 'rohjan',
     host: 'db.imad.hasura-app.io',
     port: '5432',
-    password: process.env.DB_PASSWORD
+    password: 'db-rohjan-48310'
 };
+//    password: process.env.DB_PASSWORD
 
 var app = express();
 app.use(morgan('combined'));
