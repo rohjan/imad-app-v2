@@ -93,9 +93,9 @@ function hash(input, salt) {
     return hashed.toString('hex');
 }
 
-//var salt = 'this-is-some-random-string';
+var salt = 'this-is-some-random-string';
 app.get('/hash/:input', function(req,res) {
-   var hashedString = hash(req.params.input, 'this-is-some-random-string');
+   var hashedString = hash(req.params.input, salt);
    res.send(hashedString);
 });
 var pool = new Pool(config);
