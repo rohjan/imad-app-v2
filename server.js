@@ -94,7 +94,7 @@ function hash(input, salt) {
 }
 
 var salt = 'this-is-some-random-string';
-app.get('/hash/input', function(req,res) {
+app.get('/hash/:input', function(req,res) {
    var hashedString = hash(req.params.input, salt);
    res.send(hashedString);
 });
