@@ -1,3 +1,38 @@
+// submit user name/password to login
+
+var submit = document.getElementById('submit_btn');
+
+submit.onclick = function() {
+    //make a request to the server and send the name
+    var request = new XMLHttpRequest();
+
+    //capture the request and store it in a variable
+    request.onreadystatechange = function() {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            //Take some action
+            if (request.status === 200) {
+                alert("Logged in sucessfully");
+            }
+            else if (request.status === 403) {
+                alert("Incorrect password");
+            }
+            else if (request.status === 5000) {
+                alert("Something went wrong in the server");
+            }
+        }
+    };
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    console.log(username);
+    console.log(password);
+    //Make the request
+    request.open('POST','http://rohjan.imad.hasura-app.io/login', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({username: username, password: password}));
+};
+
+/*
 // counter code
 var button = document.getElementById('counter');
 
@@ -23,6 +58,7 @@ button.onclick = function() {
     request.open('GET','http://rohjan.imad.hasura-app.io/counter', true);
     request.send(null);
 };
+
 
 // submit name
 var submit = document.getElementById('submit_btn');
@@ -55,6 +91,7 @@ submit.onclick = function() {
     request.open('GET','http://rohjan.imad.hasura-app.io/submit-name?name='+name, true);
     request.send(null);
 };
+*/
 
 //console.log('Loaded!');
 
