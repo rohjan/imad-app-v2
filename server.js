@@ -95,9 +95,9 @@ function hash(input, salt) {
     return ["pbkdf2", "10000", salt, hashed.toString('hex')].join('$');
 }
 
-var salt = 'this-is-some-random-string';
+//var salt = 'this-is-some-random-string';
 app.get('/hash/:input', function(req,res) {
-   var hashedString = hash(req.params.input, salt);
+   var hashedString = hash(req.params.input, 'this-is-some-random-string');
    res.send(hashedString);
 });
 
